@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import Gallery from './Gallery'
 import Students from './Students'
-import { BrowserRouter as Router, NavLink, Routes, Route,useHistory } from 'react-router-dom'
+import { BrowserRouter as Router, NavLink, Routes, Route, useHistory } from 'react-router-dom'
 import imgpath from 'https://www.flickr.com/photos/tags/canada/'
 import './node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './node_modules/bootstrap/dist/js/bootstrap.min.js';
@@ -48,7 +48,7 @@ const Registration = () => {
                         <ul>
                             <li>
                                 <NavLink className="nav-item nav-link" to="/gallery">Gallery</NavLink>
-                                
+
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><NavLink class="dropdown-item" href="#">New</NavLink></li>
                                     <li><NavLink class="dropdown-item" href="#">This Week</NavLink></li>
@@ -60,16 +60,15 @@ const Registration = () => {
                     <h2>Sign In</h2>
                     <div className="form_container">
                         <form onSubmit={submitHandler}>
-                            <label>Email Address</label><br />
-                            <input type="text" name="username" value={data.username} onChange={changeHandler} />
+                            <label for="exampleInputEmail1">Email address</label><br />
+                            <input type="email" class="form-control" name="username" value={data.username} onChange={changeHandler} aria-describedby="emailHelp"  />
                             {error.username && <span>{error.username}</span>}
 
-                            <br /><label>Password</label><span><NavLink exact to="/">Forgot Password?</NavLink></span><br />
+                            <br /><label for="exampleInputPassword1">Password</label><span><NavLink exact to="/">Forgot Password?</NavLink></span><br />
                             <input type="password" name="password" value={data.password} onChange={changeHandler} />
+                            <input type="password" class="form-control" name="password" value={data.password} onChange={changeHandler} ></input>
                             <i class="far fa-eye" id="togglePassword" style={{ marginLeft: "-30px", cursor: "pointer" }}></i>
                             {error.password && <span>{error.password}</span>}
-
-
                             <br />
                             <button type="button" className="btn btn-primary btn-lg" onClick={handleClick}>Sign In</button>
                             <br />
@@ -77,7 +76,7 @@ const Registration = () => {
 
                             <span>Don't have an Account?</span><NavLink to="/login">Sign Up</NavLink>
                             <Routes>
-                            
+
                                 <Route exact path="/gallery" component={Gallery} />
                                 <Route exact path="/students" component={Students} />
 
@@ -86,7 +85,7 @@ const Registration = () => {
                         </form>
                     </div>
                     <div className="sub_container">
-                        <img src={imgpath} alt="" style={{width:"60%"}}/>
+                        <img src={imgpath} alt="" style={{ width: "60%" }} />
                     </div>
                 </Router>
             </div>
